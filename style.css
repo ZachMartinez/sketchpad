@@ -1,0 +1,21 @@
+html,
+body {
+    width: 100%;
+    margin: 0;
+}
+.hero {
+    max-width: 720px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 0 2rem;
+    overflow: auto;
+    background: cornflowerblue;
+    color: white;
+}
+
+.grid-container {
+    max-width: 100%;
+    padding-top: 100%;
+    background: white;
+    outline: 1px dotted black;
+}
