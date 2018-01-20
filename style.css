@@ -15,7 +15,15 @@ body {
 
 .grid-container {
     max-width: 100%;
-    padding-top: 100%;
     background: white;
-    outline: 1px dotted black;
+    outline: 1px solid orangered;
+}
+
+.column {
+    float: left;
+}
+
+.cell {
+    background: cornflowerblue;
+    border: 1px solid orangered;
 }
