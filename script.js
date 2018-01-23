@@ -1,23 +1,28 @@
-const gridContainer = document.querySelector(".grid-container");
 
-function makeGrid (n) {
-    for
+
+
+
+function drawRow () {
+    const grid = document.querySelector('.grid');
+
+    const cell = document.createElement('div');
+          cell.classList.add('cell');
+
+    for (i = 0; i < 16; i++) {
+        grid.appendChild(cell.cloneNode());
+    }
 }
 
-function makeColumn (n) {
-    const column = document.createElement("div");
-    column.classList.add("column");
+function drawCol () {    /* Draws a column of cells in the grid */
+    const grid = document.querySelector('.grid'); /* Get grid element*/
 
-    const cell = document.createElement("div");
-    const cellSize = gridContainer.offsetWidth / n;
-    cell.classList.add("cell");
-    cell.style.width = `${cellSize}px`;
-    cell.style.height = `${cellSize}px`;
+    const cell = document.createElement('div'); /* Create cell */
+          cell.classList.add('cell');
 
-    for (i = 0; i < n; i++) {
-        column.appendChild(cell.cloneNode());
-        console.log(column.childElementCount);
+    for (i = 0; i < 16; i++) {
+        const newCell = cell.cloneNode(); /* Make each cell appear one grid-row below previous */
+              newCell.style.gridRow = i + 1;
+
+        grid.appendChild(newCell);
     }
-
-    gridContainer.appendChild(column);
 }

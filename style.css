@@ -3,27 +3,27 @@ body {
     width: 100%;
     margin: 0;
 }
-.hero {
-    max-width: 720px;
-    height: 100vh;
-    margin: 0 auto;
-    padding: 0 2rem;
-    overflow: auto;
-    background: cornflowerblue;
-    color: white;
-}
 
 .grid-container {
-    max-width: 100%;
-    background: white;
-    outline: 1px solid orangered;
+    box-sizing: border-box;
 }
 
-.column {
-    float: left;
+.grid {
+    width: 600px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    background: cornflowerblue;
+
+}
+
+.row {
+
 }
 
 .cell {
-    background: cornflowerblue;
-    border: 1px solid orangered;
+    grid-area: 1;
+    grid-row: 1;
+    background: orangered;
 }
