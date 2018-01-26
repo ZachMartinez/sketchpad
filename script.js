@@ -1,11 +1,13 @@
-const grid = document.querySelector('.grid'); 
+const grid = document.querySelector('.grid');
+const input = document.querySelector('input');
+const button = document.querySelector('button');
 
-const drawGrid = () => {
+function fillGrid (n) {
     const cell = document.createElement('div'); 
           cell.classList.add('cell');
 
-    for (j = 0; j < 16; j++) { /* Repeat columns */ 
-        for (i = 0; i < 16; i++) {
+    for (j = 0; j < n; j++) { /* Repeat columns */ 
+        for (i = 0; i < n; i++) {
             const newCell = cell.cloneNode(); /* Make each cell appear one grid-row below previous */
                   newCell.style.gridRow = i + 1; /* Grid rows start at 1 */
     
@@ -13,4 +15,14 @@ const drawGrid = () => {
         }
     }
 }
+
+function makeGrid () {
+    const size = input.value;
+
+    document.documentElement.style.setProperty('--grid-size', size);
+    fillGrid(size);
+}
+
+button.addEventListener('click', makeGrid);
+
 

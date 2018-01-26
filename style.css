@@ -1,5 +1,5 @@
 :root {
-    --grid-size: 16;
+    --grid-size: 0;
 }
 
 html,
@@ -18,18 +18,14 @@ body {
     display: grid;
     grid-template-columns: repeat(var(--grid-size), 1fr);
        grid-template-rows: repeat(var(--grid-size), 1fr);
-    background: cornflowerblue;
-}
-
-.row {
-
 }
 
 .cell {
     grid-area: 1;
     grid-row: 1;
     background: orangered;
-    transition: all .5s;
+    border: 1px solid cornflowerblue;
+    transition: all 2s;
 } .cell:hover {
-    background: rgb(133, 35, 0);
+    background: cornflowerblue;
 }
