@@ -1,5 +1,5 @@
 :root {
-    --grid-size: 3;
+    --grid-size: 16;
 }
 
 html,
@@ -29,4 +29,7 @@ body {
     grid-area: 1;
     grid-row: 1;
     background: orangered;
+    transition: all .5s;
+} .cell:hover {
+    background: rgb(133, 35, 0);
 }
