@@ -16,9 +16,14 @@ function fillGrid (n) {
     }
 }
 
+function clearGrid() {
+    const cells = Array.from(grid.childNodes);
+    cells.forEach(cell => cell.remove());
+}
+
 function makeGrid () {
     const size = input.value;
-
+    clearGrid();
     document.documentElement.style.setProperty('--grid-size', size);
     fillGrid(size);
 }
