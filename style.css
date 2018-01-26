@@ -1,3 +1,7 @@
+:root {
+    --grid-size: 3;
+}
+
 html,
 body {
     width: 100%;
@@ -12,10 +16,9 @@ body {
     width: 600px;
     height: 600px;
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
+    grid-template-columns: repeat(var(--grid-size), 1fr);
+       grid-template-rows: repeat(var(--grid-size), 1fr);
     background: cornflowerblue;
-
 }
 
 .row {
