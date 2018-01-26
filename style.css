@@ -18,12 +18,14 @@ body {
     display: grid;
     grid-template-columns: repeat(var(--grid-size), 1fr);
        grid-template-rows: repeat(var(--grid-size), 1fr);
+    border: 1px solid cornflowerblue;
 }
 
 .cell {
     grid-area: 1;
     grid-row: 1;
     transition: all .2s;
+    border: 1px solid cornflowerblue;
 } .-filled {
     background: black;
 }
