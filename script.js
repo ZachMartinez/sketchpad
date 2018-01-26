@@ -26,6 +26,14 @@ function makeGrid () {
     clearGrid();
     document.documentElement.style.setProperty('--grid-size', size);
     fillGrid(size);
+
+    const cells = Array.from(grid.childNodes);
+          cells.forEach(cell => cell.addEventListener('click', fillCell));
+
+}
+
+function fillCell () {
+    this.classList.toggle('-filled');
 }
 
 button.addEventListener('click', makeGrid);

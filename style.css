@@ -23,9 +23,7 @@ body {
 .cell {
     grid-area: 1;
     grid-row: 1;
-    background: orangered;
-    border: 1px solid cornflowerblue;
-    transition: all 2s;
-} .cell:hover {
-    background: cornflowerblue;
+    transition: all .2s;
+} .-filled {
+    background: black;
 }
