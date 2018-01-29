@@ -27,14 +27,13 @@ button.addEventListener('click', () => {
     const grid = makeGrid(size);
     let btnDwn = false;
 
+    button.textContent = "Reset Grid";
+
     gridContainer.childNodes.forEach(child => child.remove());
     gridContainer.appendChild(grid);
 
     grid.addEventListener('mouseup', () => {
         btnDwn = false;
-    });
-    grid.addEventListener('mousedown', () => {
-        btnDwn = true;
     });
 
     grid.childNodes.forEach(cell => {
@@ -44,7 +43,8 @@ button.addEventListener('click', () => {
         });
 
         cell.addEventListener('mousedown', () => { 
-                cell.classList.add('-filled');
+            btnDwn = true;
+            cell.classList.add('-filled');
         });
     });
 });
