@@ -1,9 +1,13 @@
-const grid = document.querySelector('.grid');
 const input = document.querySelector('input');
 const button = document.querySelector('button');
+const gridContainer = document.querySelector('.grid-container');
 
-function fillGrid (n) {
-    const cell = document.createElement('div'); 
+
+function makeGrid (n) {
+    const grid = document.createElement('div');
+          grid.classList.add('grid'); 
+
+    const cell = document.createElement('div');
           cell.classList.add('cell');
 
     for (j = 0; j < n; j++) { /* Repeat columns */ 
@@ -14,28 +18,33 @@ function fillGrid (n) {
             grid.appendChild(newCell);
         }
     }
+
+    return grid;
 }
 
-function clearGrid() {
-    const cells = Array.from(grid.childNodes);
-    cells.forEach(cell => cell.remove());
-}
-
-function makeGrid () {
+button.addEventListener('click', () => {
     const size = input.value;
-    clearGrid();
-    document.documentElement.style.setProperty('--grid-size', size);
-    fillGrid(size);
+    const grid = makeGrid(size);
+    let btnDwn = false;
 
-    const cells = Array.from(grid.childNodes);
-          cells.forEach(cell => cell.addEventListener('click', fillCell));
+    gridContainer.childNodes.forEach(child => child.remove());
+    gridContainer.appendChild(grid);
 
-}
+    grid.addEventListener('mouseup', () => {
+        btnDwn = false;
+    });
+    grid.addEventListener('mousedown', () => {
+        btnDwn = true;
+    });
 
-function fillCell () {
-    this.classList.toggle('-filled');
-}
+    grid.childNodes.forEach(cell => {
+        cell.addEventListener('mouseover', () => { 
+            if(btnDwn)
+                cell.classList.add('-filled');
+        });
 
-button.addEventListener('click', makeGrid);
-
-
+        cell.addEventListener('mousedown', () => { 
+                cell.classList.add('-filled');
+        });
+    });
+});
