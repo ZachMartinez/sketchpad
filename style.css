@@ -11,7 +11,16 @@ body {
     background: rgb(37, 37, 37);
 }
 
+.hero {
+    width: 640px;
+    margin: 0 auto;
+}
+
 h1 {}
+
+.controls {
+    margin: 1.5rem 0;
+}
 
 input {
     padding: 0 .5rem;
@@ -19,6 +28,7 @@ input {
     color: grey;
     background: inherit;
     border: none;
+    -moz-appearance: textfield;
 } input:focus {
     outline: none;
 }
@@ -53,6 +63,11 @@ button {
     grid-row: 1;
     transition: all .2s;
     border: 1px dashed darkslategrey;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
 } .cell:hover {
     background: rgb(45, 80, 145);  
 } .-filled {

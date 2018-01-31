@@ -1,5 +1,6 @@
 const input = document.querySelector('input');
 const button = document.querySelector('button');
+const colorBtn = document.querySelector('.color');
 const gridContainer = document.querySelector('.grid-container');
 
 
@@ -22,9 +23,16 @@ function makeGrid (n) {
     return grid;
 }
 
+function randColor () {
+    return `#${Math.floor(Math.random()*16777215).toString(16)}`;/* Stuff that makes a random color */
+}
+
+
+
 button.addEventListener('click', () => {
     const size = input.value;
     const grid = makeGrid(size);
+    let colorOn = false;
     let btnDwn = false;
 
     button.textContent = "Reset Grid";
@@ -32,19 +40,29 @@ button.addEventListener('click', () => {
     gridContainer.childNodes.forEach(child => child.remove());
     gridContainer.appendChild(grid);
 
-    grid.addEventListener('mouseup', () => {
+    colorBtn.addEventListener('click', () => {
+        colorOn = !colorOn;
+    });
+
+    document.addEventListener('mouseup', () => { /* Document scope prevents sticky mousedown bug */
         btnDwn = false;
     });
 
     grid.childNodes.forEach(cell => {
         cell.addEventListener('mouseover', () => { 
-            if(btnDwn)
+            if(btnDwn) {
                 cell.classList.add('-filled');
+                if(colorOn)
+                    cell.style.background = randColor();
+            }       
         });
 
         cell.addEventListener('mousedown', () => { 
             btnDwn = true;
             cell.classList.add('-filled');
+            if(colorOn)
+                cell.style.background = randColor();
+            event.preventDefault();
         });
     });
 });
