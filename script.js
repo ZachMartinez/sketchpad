@@ -37,7 +37,7 @@ button.addEventListener('click', () => {
     let fillColor = 'cornflowerblue'
 
     button.textContent = "Reset Grid";
-
+    
     gridContainer.childNodes.forEach(child => child.remove());
     gridContainer.appendChild(grid);
 
