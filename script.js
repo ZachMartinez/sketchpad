@@ -34,6 +34,7 @@ button.addEventListener('click', () => {
     const grid = makeGrid(size);
     let colorOn = false;
     let btnDwn = false;
+    let fillColor = 'cornflowerblue'
 
     button.textContent = "Reset Grid";
 
@@ -51,7 +52,7 @@ button.addEventListener('click', () => {
     grid.childNodes.forEach(cell => {
         cell.addEventListener('mouseover', () => { 
             if(btnDwn) {
-                cell.classList.add('-filled');
+                cell.style.background = fillColor;
                 if(colorOn)
                     cell.style.background = randColor();
             }       
@@ -59,7 +60,7 @@ button.addEventListener('click', () => {
 
         cell.addEventListener('mousedown', () => { 
             btnDwn = true;
-            cell.classList.add('-filled');
+            cell.style.background = fillColor;
             if(colorOn)
                 cell.style.background = randColor();
             event.preventDefault();
